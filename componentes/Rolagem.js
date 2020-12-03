@@ -7,6 +7,7 @@ export default function(){
         setAtuliza(true);
         //codigo de atualizacao  vem aqui
         setTimeout(()=>{setAtuliza(false)},3000);
+        // setAtualiza(false)
     }
     return(
        <View style={{flex:1}}>

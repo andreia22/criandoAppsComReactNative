@@ -1,15 +1,36 @@
 import React,{useState} from 'react';
-import { StyleSheet, Text, SafeAreaView, StatusBar } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, StatusBar, Button } from 'react-native';
 import Estilos from './estilos/Estilos.js';
 
-
-
 export default function App1(){
+  const [cor, setCor]=useState("black")
+  const mudaCor=(c)=>{setCor(c)}
+
   return (
     <SafeAreaView style={Estilos.conteiner}>
-      <StatusBar backgroundColor="blue" barStyle="dark-content"/>
+      <StatusBar
+       backgroundColor={cor}
+       barStyle="dark-content" 
+       hidden={false}
+       Animated={true} 
+       networkActivityIndicatorVisible={false}
+       translucent={true}
+       />
+       
       <Text>Em Caçador</Text>
-      <Text>Por Enquanto</Text> 
+      <Text>Por Enquanto</Text>
+      <Button
+        title="Azul"
+        onPress={()=>{mudaCor("blue")}}
+      />
+      <Button
+        title="Vermelho"
+        onPress={()=>{mudaCor("red")}}
+      />
+      <Button
+        title="Verde"
+        onPress={()=>{mudaCor("green")}}
+      />
     </SafeAreaView>
   );
 };
@@ -135,7 +156,103 @@ source={{uri:'https://th.bing.com/th/id/OIP.VJ4sDDOOPuX3t1SAhmSClQHaE8?pid=Api&r
 style={estilo.imagemFundo}
 </ImageBackground>*/
 
-/*
+/*  ESTATUSBAR COM FUNCOES ANONIMAS OU AEROFUNCTION 
+import React,{useState} from 'react';
+import { StyleSheet, Text, SafeAreaView, StatusBar, Button } from 'react-native';
+import Estilos from './estilos/Estilos.js';
+
+export default function App1(){
+  const [cor, setCor]=useState("black")
+  return (
+    <SafeAreaView style={Estilos.conteiner}>
+      <StatusBar
+       backgroundColor={cor}
+       barStyle="dark-content" 
+       hidden={false}
+       Animated={true} 
+       networkActivityIndicatorVisible={false}
+       translucent={true}
+       />
+       
+      <Text>Em Caçador</Text>
+      <Text>Por Enquanto</Text>
+      <Button
+        title="Azul"
+        onPress={()=>{setCor('red')}}
+      />
+      <Button
+        title="Vermelho"
+        onPress={()=>{setCor('green')}}
+      />
+      <Button
+        title="Verde"
+        onPress={()=>{setCor('grey')}}
+      />
+    </SafeAreaView>
+  );
+};
+const estilo = StyleSheet.create({
+  logo:{
+    width:400,
+    height:150,
+    resizeMode: 'stretch'
+ },
+ imagemFundo:{
+   flex:2,
+   resizeMode:"cover",
+ }
+})
+
+*/
+
+/* ESTATUSBAR COM AS FUNCAO CRIADA SEPARDAMENTE E CHAMADA NO ONPLESS
+import React,{useState} from 'react';
+import { StyleSheet, Text, SafeAreaView, StatusBar, Button } from 'react-native';
+import Estilos from './estilos/Estilos.js';
+
+export default function App1(){
+  const [cor, setCor]=useState("black")
+  const mudaCor=(c)=>{setCor(c)}
+
+  return (
+    <SafeAreaView style={Estilos.conteiner}>
+      <StatusBar
+       backgroundColor={cor}
+       barStyle="dark-content" 
+       hidden={false}
+       Animated={true} 
+       networkActivityIndicatorVisible={false}
+       translucent={true}
+       />
+       
+      <Text>Em Caçador</Text>
+      <Text>Por Enquanto</Text>
+      <Button
+        title="Azul"
+        onPress={()=>{mudaCor("blue")}}
+      />
+      <Button
+        title="Vermelho"
+        onPress={()=>{mudaCor("red")}}
+      />
+      <Button
+        title="Verde"
+        onPress={()=>{mudaCor("green")}}
+      />
+    </SafeAreaView>
+  );
+};
+const estilo = StyleSheet.create({
+  logo:{
+    width:400,
+    height:150,
+    resizeMode: 'stretch'
+ },
+ imagemFundo:{
+   flex:2,
+   resizeMode:"cover",
+ }
+})
 
 
 */
