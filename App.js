@@ -1,49 +1,59 @@
-import React,{useState} from 'react';
-import { StyleSheet, Text, SafeAreaView, StatusBar, Button } from 'react-native';
-import Estilos from './estilos/Estilos.js';
+import React from 'react';
+import { StyleSheet, Text,View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator} from '@react-navigation/stack';
+ 
+const Pilha=createStackNavigator();
 
+function TelaHome({navigation}) {
+  return(
+    <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+      <Text>Tela Home</Text>
+      <Text>Desenvolvedora e Programadora ReactNative</Text>
+      <Button
+         title="Tela Inicial"
+         onPress={()=>navigation.navigate('Postagens')}
+      />
+    </View>
+  );
+}
+
+function TelaPostagens({navigation}) {
+  return(
+    <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+      <Text>Tela de Postagens</Text>
+      <Text>pasqual1982.ap@gmai.com</Text>
+      <Button
+         title="Tela Postagens"
+         onPress={()=>navigation.navigate('Home')}
+      />
+      <Button
+         title="voltar"
+         onPress={()=>navigation.goBack()}
+      />
+    </View>
+  );
+}
 export default function App1(){
-  const [cor, setCor]=useState("black")
-  const mudaCor=(c)=>{setCor(c)}
-
   return (
-    <SafeAreaView style={Estilos.conteiner}>
-      <StatusBar
-       backgroundColor={cor}
-       barStyle="dark-content" 
-       hidden={false}
-       Animated={true} 
-       networkActivityIndicatorVisible={false}
-       translucent={true}
-       />
-       
-      <Text>Em Caçador</Text>
-      <Text>Por Enquanto</Text>
-      <Button
-        title="Azul"
-        onPress={()=>{mudaCor("blue")}}
-      />
-      <Button
-        title="Vermelho"
-        onPress={()=>{mudaCor("red")}}
-      />
-      <Button
-        title="Verde"
-        onPress={()=>{mudaCor("green")}}
-      />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Pilha.Navigator initialRouteName="TelaHome">
+        <Pilha.Screen
+        name="Home"
+        component={TelaHome}
+        options={{title: 'Tela inicial'}}
+        />
+        <Pilha.Screen
+        name="Postagens"
+        component={TelaPostagens}
+        options={{title: 'Tela da postagens pessoais'}}
+        />
+      </Pilha.Navigator>
+    </NavigationContainer>
   );
 };
 const estilo = StyleSheet.create({
-  logo:{
-    width:400,
-    height:150,
-    resizeMode: 'stretch'
- },
- imagemFundo:{
-   flex:2,
-   resizeMode:"cover",
- }
+  
 })
 
 /*USESTATE COM COMPONENTES:
