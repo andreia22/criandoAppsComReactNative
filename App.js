@@ -202,38 +202,6 @@ export default function App1(){
   );
 };
 const estilo = StyleSheet.create({
-  logo:{
-    width:400,
-    height:150,
-    resizeMode: 'stretch'
- },
- imagemFundo:{
-   flex:2,
-   resizeMode:"cover",
- }
-})
-
-*/
-
-/* ESTATUSBAR COM AS FUNCAO CRIADA SEPARDAMENTE E CHAMADA NO ONPLESS
-import React,{useState} from 'react';
-import { StyleSheet, Text, SafeAreaView, StatusBar, Button } from 'react-native';
-import Estilos from './estilos/Estilos.js';
-
-export default function App1(){
-  const [cor, setCor]=useState("black")
-  const mudaCor=(c)=>{setCor(c)}
-
-  return (
-    <SafeAreaView style={Estilos.conteiner}>
-      <StatusBar
-       backgroundColor={cor}
-       barStyle="dark-content" 
-       hidden={false}
-       Animated={true} 
-       networkActivityIndicatorVisible={false}
-       translucent={true}
-       />
        
       <Text>Em Caçador</Text>
       <Text>Por Enquanto</Text>
